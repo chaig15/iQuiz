@@ -11,7 +11,7 @@ import UIKit
 class FinishedViewController: UIViewController {
     
     @IBOutlet weak var overallLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var score: UILabel!
     var correctAnswers: Int = 0;
     var numQuestions: Int = 0;
     
@@ -21,10 +21,10 @@ class FinishedViewController: UIViewController {
         if (correctAnswers == numQuestions) {
             self.overallLabel.text = "Perfect!"
         } else {
-            self.overallLabel.text = "Try Again to get Perfect!"
+            self.overallLabel.text = "Try again for a perfect score!"
         }
         
-        self.scoreLabel.text = "\(correctAnswers)/\(numQuestions) correct!"
+        self.score.text = "\(correctAnswers)/\(numQuestions) correct!"
     }
     
     

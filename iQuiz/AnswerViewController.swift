@@ -57,8 +57,6 @@ class AnswerViewController: UIViewController {
     }
     
     @IBAction func nextButton(_ sender: UIButton) {
-        print(current);
-        print(self.questions.count);
         if (current + 1 < self.questions.count) {
             self.performSegue(withIdentifier: "questionNextSegue", sender: self)
         } else {

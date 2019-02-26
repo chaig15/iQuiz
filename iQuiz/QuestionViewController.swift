@@ -64,10 +64,12 @@ class QuestionViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let answerViewController = segue.destination as! AnswerViewController
-        answerViewController.allAnswers = self.selected;
-        answerViewController.questions = self.questions;
-        answerViewController.current = self.current
+        if (segue.identifier == "answerSegue") {
+            let answerViewController = segue.destination as! AnswerViewController
+            answerViewController.allAnswers = self.selected;
+            answerViewController.questions = self.questions;
+            answerViewController.current = self.current
+        }
         
     }
     

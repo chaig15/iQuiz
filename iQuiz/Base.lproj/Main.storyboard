@@ -26,7 +26,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="8PF-4j-SuL">
                                             <connections>
                                                 <action selector="settingsClick:" destination="TG6-ke-syW" id="jeZ-Ju-qY0"/>
-                                                <segue destination="TG6-ke-syW" kind="show" identifier="backSegue" id="oW0-zN-mRl"/>
+                                                <segue destination="TG6-ke-syW" kind="show" id="emb-hc-UxT"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Settings" id="eXJ-wf-s5F">
@@ -282,7 +282,7 @@
                     </view>
                     <connections>
                         <outlet property="overallLabel" destination="Y29-cd-Ec0" id="fb6-NC-5hn"/>
-                        <outlet property="scoreLabel" destination="OUn-Xe-VSc" id="peJ-15-OdG"/>
+                        <outlet property="score" destination="OUn-Xe-VSc" id="PQy-DJ-X8r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRn-y5-ZQd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -294,7 +294,8 @@
         <image name="Quiz Icon" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="V5s-hp-S95"/>
+        <segue reference="ut7-7L-6BN"/>
+        <segue reference="emb-hc-UxT"/>
         <segue reference="PYa-h9-jXx"/>
     </inferredMetricsTieBreakers>
 </document>
