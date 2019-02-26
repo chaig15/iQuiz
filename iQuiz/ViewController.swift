@@ -31,7 +31,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        getJSON(url: currentURL);
+        let quizData = UserDefaults.standard.data(forKey: "quiz")
+        if (quizData != nil) {
+            let quizObject = try! JSONDecoder().decode([QuizInfo].self, from: quizData!);
+            self.quizzes = quizObject;
+            print("local");
+        } else {
+            getJSON(url: currentURL);
+            print("online download")
+        }
         TopicTableView.dataSource = self;
         TopicTableView.delegate = self;
     }
@@ -61,6 +69,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 DispatchQueue.main.async {
                     self.quizzes = quizData;
                     self.TopicTableView.reloadData();
+                    let quizData = try! JSONEncoder().encode(quizData);
+                    UserDefaults.standard.set(quizData, forKey: "quiz");
                 }
                 } catch let jsonError {
                     let alertController = UIAlertController(title: "Alert", message: jsonError.localizedDescription, preferredStyle: .alert);
@@ -70,6 +80,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }.resume()
     }
     
+ 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "questionSegue", sender: self)
     }
@@ -82,9 +93,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBAction func settingsClick(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "Alert", message: "Settings go here", preferredStyle: .alert);
-        alertController.addAction(UIAlertAction(title: "OK", style: .default));
-        self.present(alertController, animated: true, completion: nil);
+        
     }
     
 
