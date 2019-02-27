@@ -30,16 +30,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var quizzes: [QuizInfo] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let quizData = UserDefaults.standard.data(forKey: "quiz")
-        if (quizData != nil) {
-            let quizObject = try! JSONDecoder().decode([QuizInfo].self, from: quizData!);
-            self.quizzes = quizObject;
-            print("local");
-        } else {
-            getJSON(url: currentURL);
-            print("online download")
-        }
+        self.getJSON(url: self.currentURL, isOnline: { (online) in
+            if (online == false) {
+                DispatchQueue.main.async {
+                    let quizData = UserDefaults.standard.data(forKey: "quiz")
+                    if (quizData != nil) {
+                        let quizObject = try! JSONDecoder().decode([QuizInfo].self, from: quizData!);
+                        self.quizzes = quizObject;
+                        self.TopicTableView.reloadData();
+                        print(self.quizzes);
+                        print("local");
+                    }
+                }
+            }
+        });
         TopicTableView.dataSource = self;
         TopicTableView.delegate = self;
     }
@@ -55,12 +59,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell;
     }
     
-    func getJSON(url: URL) {
+    func getJSON(url: URL,  isOnline: @escaping (_ online: Bool) -> ()) {
+        var online: Bool = true;
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
+                online = false;
                 let alertController = UIAlertController(title: "Alert", message: error?.localizedDescription, preferredStyle: .alert);
                 alertController.addAction(UIAlertAction(title: "OK", style: .default));
                 self.present(alertController, animated: true, completion: nil);
+                isOnline(online);
             }
             //Get back to the main queue
             guard let data = data else { return }
@@ -71,6 +78,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     self.TopicTableView.reloadData();
                     let quizData = try! JSONEncoder().encode(quizData);
                     UserDefaults.standard.set(quizData, forKey: "quiz");
+                    print("online download");
+                    isOnline(online);
                 }
                 } catch let jsonError {
                     let alertController = UIAlertController(title: "Alert", message: jsonError.localizedDescription, preferredStyle: .alert);
