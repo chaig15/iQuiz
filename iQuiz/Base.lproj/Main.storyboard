@@ -203,7 +203,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="Quiz Icon" highlightedImage="Quiz Icon" id="430-u6-FTz">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="Image" highlightedImage="Image" id="430-u6-FTz">
                                                     <rect key="frame" x="15" y="0.0" width="44" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -291,11 +291,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Quiz Icon" width="512" height="512"/>
+        <image name="Image" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ut7-7L-6BN"/>
         <segue reference="emb-hc-UxT"/>
-        <segue reference="PYa-h9-jXx"/>
+        <segue reference="8j7-66-4oC"/>
     </inferredMetricsTieBreakers>
 </document>

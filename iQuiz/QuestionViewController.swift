@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class QuestionViewController: UIViewController {
     
     @IBOutlet weak var Question: UILabel!
@@ -56,11 +55,8 @@ class QuestionViewController: UIViewController {
         selected.append(tag);
     }
     
-    
-    
     @IBAction func submitButton(_ sender: UIButton) {
-    self.performSegue(withIdentifier: "answerSegue", sender: self)
-
+        self.performSegue(withIdentifier: "answerSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,7 +66,6 @@ class QuestionViewController: UIViewController {
             answerViewController.questions = self.questions;
             answerViewController.current = self.current
         }
-        
     }
     
 }

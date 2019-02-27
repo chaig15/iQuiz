@@ -12,8 +12,6 @@
 		E65B756D221F7CEE00B31F28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65B756C221F7CEE00B31F28 /* ViewController.swift */; };
 		E65B7570221F7CEE00B31F28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E65B756E221F7CEE00B31F28 /* Main.storyboard */; };
 		E65B7572221F7CF300B31F28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E65B7571221F7CF300B31F28 /* Assets.xcassets */; };
-		E65B7580221F7CF300B31F28 /* iQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65B757F221F7CF300B31F28 /* iQuizTests.swift */; };
-		E65B758B221F7CF300B31F28 /* iQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65B758A221F7CF300B31F28 /* iQuizUITests.swift */; };
 		E65B7599221F88DF00B31F28 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65B7598221F88DF00B31F28 /* QuestionViewController.swift */; };
 		E65B759B221F890800B31F28 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65B759A221F890800B31F28 /* AnswerViewController.swift */; };
 /* End PBXBuildFile section */
@@ -44,11 +42,7 @@
 		E65B7571221F7CF300B31F28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E65B7576221F7CF300B31F28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E65B757B221F7CF300B31F28 /* iQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E65B757F221F7CF300B31F28 /* iQuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iQuizTests.swift; sourceTree = "<group>"; };
-		E65B7581221F7CF300B31F28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E65B7586221F7CF300B31F28 /* iQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E65B758A221F7CF300B31F28 /* iQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iQuizUITests.swift; sourceTree = "<group>"; };
-		E65B758C221F7CF300B31F28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E65B7598221F88DF00B31F28 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		E65B759A221F890800B31F28 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,8 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				E65B7569221F7CEE00B31F28 /* iQuiz */,
-				E65B757E221F7CF300B31F28 /* iQuizTests */,
-				E65B7589221F7CF300B31F28 /* iQuizUITests */,
 				E65B7568221F7CEE00B31F28 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,24 +103,6 @@
 				E60C5AA82224C3FA0094D789 /* FinishedViewController.swift */,
 			);
 			path = iQuiz;
-			sourceTree = "<group>";
-		};
-		E65B757E221F7CF300B31F28 /* iQuizTests */ = {
-			isa = PBXGroup;
-			children = (
-				E65B757F221F7CF300B31F28 /* iQuizTests.swift */,
-				E65B7581221F7CF300B31F28 /* Info.plist */,
-			);
-			path = iQuizTests;
-			sourceTree = "<group>";
-		};
-		E65B7589221F7CF300B31F28 /* iQuizUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E65B758A221F7CF300B31F28 /* iQuizUITests.swift */,
-				E65B758C221F7CF300B31F28 /* Info.plist */,
-			);
-			path = iQuizUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +247,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E65B7580221F7CF300B31F28 /* iQuizTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +254,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E65B758B221F7CF300B31F28 /* iQuizUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

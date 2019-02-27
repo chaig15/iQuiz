@@ -13,7 +13,6 @@ struct Question: Codable {
     var text: String;
     var answer: String;
     var answers: [String];
-    
 }
 
 struct QuizInfo: Codable {
@@ -21,7 +20,6 @@ struct QuizInfo: Codable {
     var desc: String;
     var questions: [Question];
 }
-
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -38,7 +36,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         let quizObject = try! JSONDecoder().decode([QuizInfo].self, from: quizData!);
                         self.quizzes = quizObject;
                         self.TopicTableView.reloadData();
-                        print(self.quizzes);
                         print("local");
                     }
                 }
@@ -102,7 +99,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBAction func settingsClick(_ sender: UIBarButtonItem) {
-        
+        let alert = UIAlertController(title: "JSON URL", message: "Enter a URL", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.text = self.currentURL.absoluteString;
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            let url = URL(string: textField.text ?? self.currentURL.absoluteString) ;
+            self.getJSON(url: url!, isOnline: { (online) in
+            });
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
 
